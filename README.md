@@ -11,7 +11,7 @@ NodeJS framework(Adonis) and React
 3. Have content or features that are accessible only by authorized users 
 4. Create a single page application using React and use HTTP requests to consume endpoints written specially for it.
 
-# Title: Suck It
+# Title: Suck it
 
 A e-commerce website to allow user to come in and purchase bubble tea. Every drink can be selected and customise according to the user specifications. 
 
@@ -66,7 +66,7 @@ As a user:
 * I want to have a fuss free check out process
 * I will want to be able to know what i have purchased and that my order is confirmed. 
 
-# Scope
+## Scope
 
 ## functional requirement
 
@@ -89,7 +89,8 @@ As a user:
 
 # Database Schema diagram
 
-# 
+<img src="images/assignment3-ER.png"/>
+
 
 
 

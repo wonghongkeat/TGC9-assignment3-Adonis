@@ -1,2 +1,3 @@
 INSERT INTO customers (first_name, last_name, email, address) VALUES
-('hong keat','wong','whk@gmail.com','serangoon 4321');
+('dominic','soh','domsoh@gmail.com','ang mo kio 5678'),
+('leon','lim','leonlim@yahoo.com','serangoon ave 4');

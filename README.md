@@ -87,9 +87,13 @@ As a user:
 * feedback
 * suggestion
 
-# Database Schema diagram
+# Database ER diagram
 
 <img src="documentation/assignment3-ER.png"/>
+
+# Database Schema diagram
+
+<img src="documentation/assignment3-schema.png"/>
 
 
 

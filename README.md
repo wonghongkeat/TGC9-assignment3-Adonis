@@ -89,7 +89,7 @@ As a user:
 
 # Database Schema diagram
 
-<img src="images/assignment3-ER.png"/>
+<img src="documentation/assignment3-ER.png"/>
 
 
 

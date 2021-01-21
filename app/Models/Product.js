@@ -10,6 +10,13 @@ class Product extends Model {
   flavour(){
     return this.belongsTo("App/Models/Flavour")
   }
+
+  topping_product(){
+    return this.hasMany("App/Models/ProductTopping")
+  }
+    cartProduct(){
+    return this.hasMany('App/Models/CartProduct')
+  }
 }
 
 module.exports = Product

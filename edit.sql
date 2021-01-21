@@ -1,6 +1,6 @@
-INSERT INTO customers (first_name, last_name, email, address) VALUES
-('dominic','soh','domsoh@gmail.com','ang mo kio 5678'),
-('leon','lim','leonlim@yahoo.com','serangoon ave 4');
+INSERT INTO customers (username, email, address, password) VALUES
+('domSoh','domsoh@gmail.com','ang mo kio 5678', 'abc12345'),
+('leonLim','leonlim@yahoo.com','serangoon ave 4','12345abc');
 
 
 INSERT INTO sugar_levels (level) VALUES

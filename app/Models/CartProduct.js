@@ -3,14 +3,13 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
-class Customer extends Model {
+class CartProduct extends Model {
   cart(){
     return this.hasMany("App/Models/Cart")
   }
-    order(){
-    return this.hasMany('App/Models/Order')
+  product(){
+    return this.hasMany("App/Models/Product")
   }
-
 }
 
-module.exports = Customer
+module.exports = CartProduct

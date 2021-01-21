@@ -4,7 +4,9 @@
 const Model = use('Model')
 
 class Topping extends Model {
-
+  topping(){
+    return this.hasMany("App/Models/Topping")
+  }
 }
 
 module.exports = Topping

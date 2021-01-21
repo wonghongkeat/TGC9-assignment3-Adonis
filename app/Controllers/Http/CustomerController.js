@@ -1,6 +1,6 @@
 'use strict'
 
-const customer = use('App/Models/Customer')
+const Customer = use('App/Models/Customer')
 
 class CustomerController {
 async index({view}){
@@ -9,6 +9,20 @@ async index({view}){
       customers: customers.toJSON()
     })
   }
+  create({view}){
+    return view.render('customers/create')
+  }
+  processCreate({request,response}){
+    let body = request.post()
+    let newCustomer = new Customer()
+    newCustomer.username = body.username
+    newCustomer.email = body.email
+    newCustomer.address = body.address
+    newCustomer.password = body.password
+    newCustomer.save()
+  }
+
 }
+
 
 module.exports = CustomerController

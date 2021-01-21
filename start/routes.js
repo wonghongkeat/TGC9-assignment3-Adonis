@@ -20,4 +20,7 @@ Route.on('/').render('welcome')
 Route.get('/flavours', 'FlavourController.index')
 Route.get('/product/create', "ProductController.create")
 Route.post('/product/create', "ProductController.processCreate")
+
 Route.get('/customers/show', "CustomerController.index")
+Route.get('/customers/create', "CustomerController.create")
+Route.post('/customers/create', "CustomerController.processCreate")

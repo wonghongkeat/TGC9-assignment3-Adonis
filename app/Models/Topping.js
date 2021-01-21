@@ -4,6 +4,7 @@
 const Model = use('Model')
 
 class Topping extends Model {
+
 }
 
 module.exports = Topping

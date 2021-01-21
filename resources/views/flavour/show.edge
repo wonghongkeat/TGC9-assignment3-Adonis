@@ -1,0 +1,21 @@
+@layout('welcome')
+@section('content')
+
+<h1>flavour available</h1>
+
+<table clsss="table">
+<tr>
+<th>tea</th>
+<th>price</th>
+</tr>
+
+@each(f in flavours)
+<tr>
+<td>{{f.tea}}</td>
+<td>{{f.price}}</td>
+</tr>
+@endeach
+
+</table>
+
+@endsection

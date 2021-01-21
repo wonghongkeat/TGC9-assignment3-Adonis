@@ -7,10 +7,11 @@ class ProductSchema extends Schema {
   up () {
     this.create('products', (table) => {
       table.increments()
-       table.integer('flavour_id').unsigned().notNullable()
+      table.integer('flavour_id').unsigned().notNullable()
       table.foreign('flavour_id').references('flavours.id')
-      table.integer('topping_id').unsigned().notNullable()
-      table.foreign('topping_id').references('toppings.id')
+
+      table.integer('sugar_id').unsigned().notNullable()
+      table.foreign('sugar_id').references('sugar_levels.id')
       table.timestamps()
     })
   }

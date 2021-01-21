@@ -17,3 +17,6 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+Route.get('/flavours', 'FlavourController.index')
+Route.get('/product/create', "ProductController.create")
+Route.post('/product/create', "ProductController.processCreate")

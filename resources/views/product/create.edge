@@ -1,0 +1,28 @@
+@layout('welcome')
+@section('content')
+
+<form class="form" method="POST">
+
+{{ csrfField() }}
+<div>
+<select name='flavour' class='form-control'>
+@each(f in flavours)
+<option value="{{f.id}}">{{f.tea}}</option>
+@endeach
+</select>
+</div>
+
+<div>
+<select name='sugar' class='form-control'>
+@each(s in sugars)
+<option value="{{s.id}}">{{s.level}}</option>
+@endeach
+</select>
+</div>
+
+<input type='submit'/>
+</form>
+
+
+
+@endsection

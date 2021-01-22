@@ -24,7 +24,6 @@ async index({view}){
 
   async update({view,params}){
     let username = await Customer.find(params.user_id)
-    console.log(username)
     return view.render('customers/update',{
       username: username.toJSON()
     })

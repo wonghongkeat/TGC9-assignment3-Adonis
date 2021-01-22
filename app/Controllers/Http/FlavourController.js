@@ -6,7 +6,18 @@ class FlavourController {
     return view.render('flavour/show',{
       flavours:flavours.toJSON()
     })
+  }
 
+  create({view}){
+    return view.render('flavour/create')
+  }
+
+  processCreate({request,respond}){
+    let body = request.post()
+    let newFlavour = new Flavour()
+    newFlavour.tea = body.tea
+    newFlavour.price = body.price
+    newFlavour.save()
   }
 }
 

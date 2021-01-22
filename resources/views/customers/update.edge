@@ -2,25 +2,25 @@
 
 @section('content')
 
-<h1>New User Sign Up</h1>
+<h1>update user</h1>
 
 <form method="POST">
 {{ csrfField() }}
 <div>
 <label>Please register a username</label>
-<input type='text' name='username'/>
+<input type='text' name='username'value='{{username.username}}'/>
 </div>
 <div>
 <label>Please enter a password</label>
-<input type='password' name='password' placeholder="less than 8 characters"/>
+<input type='password' name='password' value='{{username.password}}'/>
 </div>
 <div>
 <label>address</label>
-<input type='text'name='address'/>
+<input type='text'name='address' value='{{username.address}}'/>
 </div>
 <div>
 <label>email</label>
-<input type='text' name='email'/>
+<input type='text' name='email' value='{{username.email}}'/>
 </div>
 <input type='submit'/>
 </form>

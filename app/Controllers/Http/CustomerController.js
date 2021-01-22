@@ -4,7 +4,7 @@ const Customer = use('App/Models/Customer')
 
 class CustomerController {
 async index({view}){
-    let customers = await customer.all()
+    let customers = await Customer.all()
     return view.render('customers/show',{
       customers: customers.toJSON()
     })
@@ -20,6 +20,24 @@ async index({view}){
     newCustomer.address = body.address
     newCustomer.password = body.password
     newCustomer.save()
+  }
+
+  async update({view,params}){
+    let username = await Customer.find(params.user_id)
+    console.log(username)
+    return view.render('customers/update',{
+      username: username.toJSON()
+    })
+  }
+
+  async processUpdate({request,respond,params}){
+    let updateUser = await Customer.find(params.user_id)
+    let body = request.post()
+    updateUser.username = body.username
+    updateUser.email = body.email
+    updateUser.address = body.address
+    updateUser.password = body.password
+    updateUser.save()
   }
 
 }

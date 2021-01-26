@@ -4,8 +4,8 @@
 const Model = use('Model')
 
 class Topping extends Model {
-  topping(){
-    return this.hasMany("App/Models/Topping")
+  products(){
+    return this.belongsToMany("App/Models/Product")
   }
 }
 

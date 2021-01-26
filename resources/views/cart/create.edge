@@ -1,0 +1,22 @@
+@layout('base')
+@section('content')
+
+
+<h1> add to cart </h1>
+<form class="form" method="POST">
+
+{{ csrfField() }}
+<div>
+<select multiple name='product' class='form-control'>
+@each(p in products)
+<option value="{{p.id}}">{{f.tea}}</option>
+@endeach
+</select>
+</div>
+
+<input type='submit'>add</input>
+</form>
+
+
+
+@endsection

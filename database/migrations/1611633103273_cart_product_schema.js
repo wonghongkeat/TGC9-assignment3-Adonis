@@ -5,7 +5,7 @@ const Schema = use('Schema')
 
 class CartProductSchema extends Schema {
   up () {
-    this.create('cart_products', (table) => {
+    this.create('cart_product', (table) => {
       table.increments()
       table.integer('cart_id').unsigned().notNullable()
       table.foreign('cart_id').references('carts.id')
@@ -17,9 +17,8 @@ class CartProductSchema extends Schema {
   }
 
   down () {
-    this.drop('cart_products')
+    this.drop('cart_product')
   }
 }
 
 module.exports = CartProductSchema
-

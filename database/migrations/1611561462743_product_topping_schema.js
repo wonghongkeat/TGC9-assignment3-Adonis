@@ -5,21 +5,19 @@ const Schema = use('Schema')
 
 class ProductToppingSchema extends Schema {
   up () {
-    this.create('product_toppings', (table) => {
+    this.create('product_topping', (table) => {
       table.increments()
-      table.integer('topping_id').unsigned().notNullable()
-      table.foreign('topping_id').references('toppings.id')
-
       table.integer('product_id').unsigned().notNullable()
       table.foreign('product_id').references('products.id')
 
-
+      table.integer('topping_id').unsigned().notNullable()
+      table.foreign('topping_id').references('toppings.id')
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('product_toppings')
+    this.drop('product_topping')
   }
 }
 

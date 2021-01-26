@@ -21,9 +21,15 @@ Route.on('/').render('welcome')
 Route.get('/flavours', 'FlavourController.index')
 Route.get('/flavours/create', "FlavourController.create")
 Route.post('/flavours/create', "FlavourController.processCreate")
+//topping
+Route.get('/toppings', "ToppingController.index")
 //product
 Route.get('/product/create', "ProductController.create")
 Route.post('/product/create', "ProductController.processCreate")
+Route.get('/product/:id/show', "ProductController.show")
+//cart
+Route.get('/cart/create', "CartController.create")
+Route.post('/cart/create', "CartController.processCreate")
 //customers
 Route.get('/customers/show', "CustomerController.index")
 Route.get('/customers/create', "CustomerController.create")

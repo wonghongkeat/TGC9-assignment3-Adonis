@@ -13,6 +13,14 @@
 </div>
 
 <div>
+<select name="topping" multiple class='form-control'>
+@each(t in toppings)
+<option value="{{t.id}}" name="topping">{{t.topping}}</option>
+@endeach
+</select>
+</div>
+
+<div>
 <select name='sugar' class='form-control'>
 @each(s in sugars)
 <option value="{{s.id}}">{{s.level}}</option>

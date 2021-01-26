@@ -1,0 +1,21 @@
+@layout('base')
+@section('content')
+
+<h1>Topping available</h1>
+
+<table clsss="table">
+<tr>
+<th>Topping</th>
+<th>price</th>
+</tr>
+
+@each(t in topping)
+<tr>
+<td>{{t.topping}}</td>
+<td>{{t.price}}</td>
+</tr>
+@endeach
+
+</table>
+
+@endsection

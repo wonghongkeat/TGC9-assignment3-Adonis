@@ -5,18 +5,20 @@ const Model = use('Model')
 
 class Product extends Model {
   sugar() {
-    return this.belongsTo("App/Models/SugarLevel")
+    return this.belongsTo("App/Models/SugarLevel", "sugar_id");
   }
   flavour(){
     return this.belongsTo("App/Models/Flavour")
   }
 
-  topping_product(){
-    return this.hasMany("App/Models/ProductTopping")
+  toppings(){
+    return this.belongsToMany("App/Models/Topping")
   }
-    cartProduct(){
-    return this.hasMany('App/Models/CartProduct')
+
+  carts(){
+    return this.belongsToMany("App/Models/Cart")
   }
+
 }
 
 module.exports = Product

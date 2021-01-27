@@ -33,7 +33,6 @@ class ProductController {
     let sugars = await product.sugar().fetch()
     let flavours = await product.flavour().fetch()
     let toppings = await product.toppings().fetch()
-    console.log(toppings.toJSON())
     return view.render('product/show',{
       product:product.toJSON(),
       sugars: sugars.toJSON(),
@@ -41,6 +40,16 @@ class ProductController {
       toppings:toppings.toJSON()
     })
   }
+
+ async showProduct({view,response}){
+   let product = await Product.all()
+  let  x = await Product.query().with("toppings").fetch()
+  // return view.render("product/showAll",{
+  //   products:x.toJSON()
+  // })
+  response.json(x)
+  }
+
 }
 
 module.exports = ProductController

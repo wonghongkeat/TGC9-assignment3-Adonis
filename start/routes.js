@@ -27,6 +27,7 @@ Route.get('/toppings', "ToppingController.index")
 Route.get('/product/create', "ProductController.create")
 Route.post('/product/create', "ProductController.processCreate")
 Route.get('/product/:id/show', "ProductController.show")
+Route.get('/product/show', "ProductController.showProduct")
 //cart
 Route.get('/cart/create', "CartController.create")
 Route.post('/cart/create', "CartController.processCreate")
@@ -36,3 +37,6 @@ Route.get('/customers/create', "CustomerController.create")
 Route.post('/customers/create', "CustomerController.processCreate")
 Route.get('/customers/:user_id/update', "CustomerController.update")
 Route.post('/customers/:user_id/update', "CustomerController.processUpdate")
+//customers
+Route.get('/customers/login', 'CustomerController.login');
+Route.post('/customers/login', 'CustomerController.processLogin');

@@ -1,4 +1,4 @@
-INSERT INTO customers (username, email, address, password) VALUES
+INSERT INTO customers (username, email, password, address ) VALUES
 ('domSoh','domsoh@gmail.com','ang mo kio 5678', 'abc12345'),
 ('leonLim','leonlim@yahoo.com','serangoon ave 4','12345abc');
 

@@ -1,0 +1,22 @@
+@layout('base')
+@section('content')
+
+<h1>All Product</h1>
+<div class="container">
+<table clsss="table">
+<tr>
+<th>product id</th>
+<th>flavour</th>
+<th>sugar</th>
+<th>topping</th>
+</tr>
+
+@each(s in sugars)
+<tr>
+<td>{{s}}</td>
+</tr>
+@endeach
+</table>
+</div>
+
+@endsection

@@ -11,6 +11,7 @@ class CartController {
     let products = Product.all()
     let flavours = Flavour.all()
     let toppings = Topping.all()
+    let
 
     return view.render('cart/create',{
       products:products.JSON()

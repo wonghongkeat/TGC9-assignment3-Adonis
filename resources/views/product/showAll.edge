@@ -2,7 +2,7 @@
 @section('content')
 
 <h1>All Product</h1>
-<div class="container">
+
 <table clsss="table">
 <tr>
 <th>product id</th>
@@ -11,12 +11,18 @@
 <th>topping</th>
 </tr>
 
-@each(s in sugars)
+@each(x in x)
 <tr>
-<td>{{s}}</td>
+<td>{{x.id}}</td>
+<td>{{x.flavour.tea}}</td>
+<td>{{x.sugar.level}}</td>
+@each(t in x.toppings)
+<td>{{t.topping}}</td>
+@endeach
 </tr>
 @endeach
+
 </table>
-</div>
+
 
 @endsection

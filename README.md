@@ -11,7 +11,7 @@ NodeJS framework(Adonis) and React
 3. Have content or features that are accessible only by authorized users 
 4. Create a single page application using React and use HTTP requests to consume endpoints written specially for it.
 
-# Title: Suck it
+# Title: Suck eat
 
 A e-commerce website to allow user to come in and purchase bubble tea. Every drink can be selected and customise according to the user specifications. 
 

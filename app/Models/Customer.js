@@ -7,6 +7,11 @@ const Hash = use('Hash')
 const Model = use('Model')
 
 class Customer extends Model {
+
+  cart(){
+    return this.hasOne("App/Models/Cart")
+  }
+
   static boot () {
     super.boot()
 

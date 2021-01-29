@@ -12,6 +12,7 @@ class CartProductSchema extends Schema {
 
       table.integer('product_id').unsigned().notNullable()
       table.foreign('product_id').references('products.id')
+
       table.timestamps()
     })
   }

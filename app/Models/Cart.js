@@ -5,8 +5,12 @@ const Model = use('Model')
 
 class Cart extends Model {
 
-  order(){
-    return this.belongsTo("App/Models/Order")
+  // order(){
+  //   return this.belongsTo("App/Models/Order")
+  // }
+
+  customer(){
+    return this.hasOne("App/Models/Customer")
   }
 
     products(){

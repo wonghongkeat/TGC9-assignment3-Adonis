@@ -18,7 +18,7 @@ class ProductController {
     })
   }
 
- async processCreate({request,response}){
+ async processCreate({request,response,auth}){
     let body = request.post()
     let newProduct = new Product()
     let newCart = new Cart()
@@ -26,9 +26,21 @@ class ProductController {
     newProduct.flavour_id = body.flavour
     await newProduct.save()
     await newProduct.toppings().attach(body.topping)
+    let userCart = await Cart.findBy('customer_id', auth.user.id)
+    if(userCart){
+      await userCart.products().attach(newProduct.id)
+    }
 
 
-   response.json(newProduct)
+
+
+    // if(findCart){
+    //   let userCart = await
+    // }
+
+
+  // response.route('showOne', { id: newProduct.id })
+  //  response.json(newProduct)
 
   }
   async show({view,params}){
@@ -44,16 +56,16 @@ class ProductController {
     })
   }
 
+  async processShow({request,response}){
+    let id = document.getElementById ( "tdid" ).innerText
+    console.log(id)
+  }
+
  async showProduct({view,response}){
   let product = await Product.all()
-  // let sugars = await product.sugar().fetch()
-  // let flavours = await product.flavour().fetch()
   let  x = await Product.query().with("sugar").with("toppings").with("flavour").fetch()
   return view.render("product/showAll",{
     x:x.toJSON(),
-    // products:product.toJSON(),
-    //  sugars: sugars.toJSON(),
-    // flavours:flavours.toJSON(),
   })
   // response.json(x)
   }

@@ -1,6 +1,7 @@
 'use strict'
 
 const Customer = use('App/Models/Customer')
+const Cart = use('App/Models/Cart')
 
 class CustomerController {
 async index({view}){
@@ -12,14 +13,17 @@ async index({view}){
   create({view}){
     return view.render('customers/create')
   }
-  processCreate({request,response}){
+ async processCreate({request,response}){
     let body = request.post()
     let newCustomer = new Customer()
+    let newCart = new Cart()
     newCustomer.username = body.username
     newCustomer.email = body.email
     newCustomer.address = body.address
     newCustomer.password = body.password
-    newCustomer.save()
+    await newCustomer.save()
+    newCart.customer_id = newCustomer.id
+    await newCart.save()
   }
 
   async update({view,params}){
@@ -47,6 +51,11 @@ async index({view}){
     await auth.attempt(Data.username, Data.password);
     return "success"
     console.log("logged in")
+  }
+
+ async logout({auth,response}){
+    await auth.logout()
+    response.redirect('/')
   }
 
 }

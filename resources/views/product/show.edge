@@ -3,6 +3,7 @@
 
 <h1>Product selected</h1>
 <div class="container">
+<form method="POST">
 <table clsss="table">
 <tr>
 <th>product id</th>
@@ -20,8 +21,12 @@
 <td>{{t.topping}},</td>
 @endeach
 
+
+
 </tr>
 </table>
+<input type="submit" class="btn btn-success" value="add to cart"/>
+
 </div>
 
 @endsection

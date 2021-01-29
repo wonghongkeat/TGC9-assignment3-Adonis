@@ -7,6 +7,8 @@ class CartSchema extends Schema {
   up () {
     this.create('carts', (table) => {
       table.increments()
+      table.integer('customer_id').unsigned().notNullable()
+      table.foreign('customer_id').references('customers.id')
       table.timestamps()
     })
   }
@@ -17,3 +19,4 @@ class CartSchema extends Schema {
 }
 
 module.exports = CartSchema
+

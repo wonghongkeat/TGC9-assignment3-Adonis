@@ -11,7 +11,11 @@
     <title>adonis</title>
   </head>
   <body>
+  <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="{{ route('userLogout') }}">Navbar</a>
+</nav>
     <h1>BASE</h1>
+    <h2>{{auth.user.username}}</h2>
      <button type="button" class="btn btn-light"><a href="{{ route('home') }}">home</a></button>
 
 

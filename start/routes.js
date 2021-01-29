@@ -27,7 +27,6 @@ Route.get('/toppings', "ToppingController.index").as('toppings.show')
 Route.get(`/product/create`, "ProductController.create")
 Route.post('/product/create', "ProductController.processCreate")
 Route.get('/product/:id/show', "ProductController.show").as("showOne")
-Route.post('/product/:id/show', "ProductController.processShow")
 Route.get('/product/show', "ProductController.showProduct").as('product.show')
 //cart
 Route.get('/cart/create', "CartController.create").as('createCart')

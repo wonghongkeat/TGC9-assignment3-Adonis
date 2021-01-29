@@ -21,7 +21,6 @@ class ProductController {
  async processCreate({request,response,auth}){
     let body = request.post()
     let newProduct = new Product()
-    let newCart = new Cart()
     newProduct.sugar_id = body.sugar
     newProduct.flavour_id = body.flavour
     await newProduct.save()
@@ -29,7 +28,9 @@ class ProductController {
     let userCart = await Cart.findBy('customer_id', auth.user.id)
     if(userCart){
       await userCart.products().attach(newProduct.id)
-    }
+    }else(
+      response.send("please login")
+    )
 
 
 
@@ -56,18 +57,13 @@ class ProductController {
     })
   }
 
-  async processShow({request,response}){
-    let id = document.getElementById ( "tdid" ).innerText
-    console.log(id)
-  }
-
  async showProduct({view,response}){
   let product = await Product.all()
   let  x = await Product.query().with("sugar").with("toppings").with("flavour").fetch()
   return view.render("product/showAll",{
     x:x.toJSON(),
   })
-  // response.json(x)
+  response.json(x)
   }
 
 }

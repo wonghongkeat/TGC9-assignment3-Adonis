@@ -20,6 +20,10 @@ const Route = use('Route')
 
 Route.on('/').render('welcome').as('home')
 
+//login
+Route.post('/api/user/login', 'LoginController.login');
+Route.post('/api/user', 'LoginController.register');
+
 //react
 Route.get('/reactFlavours', "ReactController.reactFlavours")
 Route.get('/reactTopping', "ReactController.reactToppings")

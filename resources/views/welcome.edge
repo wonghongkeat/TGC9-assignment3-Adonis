@@ -4,23 +4,39 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>adonis</title>
+    <title>ADMIN</title>
+
   </head>
+
+
   <body>
-    <h1>admin</h1>
+    <h1 style="text-align:center; margin-top:20px">Admin</h1>
+   @loggedIn
+    <div class="col text-center">
     <button type="button" class="btn btn-light"><a href="{{ route('flavours.show') }}">Flavours</a></button>
     <button type="button" class="btn btn-light"><a href="{{ route('toppings.show') }}">Toppings</a></button>
     <button type="button" class="btn btn-light"><a href="{{ route('product.show') }}">product</a></button>
     <button type="button" class="btn btn-light"><a href="{{ route('createCart') }}">create</a></button>
     <button type="button" class="btn btn-light"><a href="{{ route('customers.show') }}">Customers</a></button>
-    <button type="button" class="btn btn-light"><a href="{{ route('userLogin') }}">User Login</a></button>
-    <div class=container>
-
     </div>
+  @else
+    <div class="col text-center">
+    <button style="text-align:center" type="button" class="btn btn-light"><a href="{{ route('userLogin') }}">Admin Login</a></button>
+    </div>
+  @endloggedIn
+
+
+
+
+
+
+
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

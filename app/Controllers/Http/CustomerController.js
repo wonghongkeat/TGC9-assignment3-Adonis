@@ -43,20 +43,6 @@ async index({view}){
     updateUser.save()
   }
 
-   login({view}){
-    return view.render('customers/login')
-  }
-    async processLogin({request, auth}) {
-    let Data = request.post();
-    await auth.attempt(Data.username, Data.password);
-    return "success"
-    console.log("logged in")
-  }
-
- async logout({auth,response}){
-    await auth.logout()
-    response.redirect('/')
-  }
 
 }
 

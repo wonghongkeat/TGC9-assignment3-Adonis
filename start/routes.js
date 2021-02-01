@@ -18,12 +18,13 @@ const Route = use('Route')
 
 
 
-Route.on('/').render('welcome').as('home')
 
-//login
-Route.post('/api/user/login', 'LoginController.login');
-Route.post('/api/user', 'LoginController.register');
-
+//users
+Route.get('/register', 'UserController.create')
+Route.post('/register', 'UserController.processCreate')
+Route.get('/user/login', 'UserController.login').as('userLogin')
+Route.post('/user/login', 'UserController.processLogin');
+Route.get('/user/logout', 'UserController.logout').as('userLogout')
 //react
 Route.get('/reactFlavours', "ReactController.reactFlavours")
 Route.get('/reactTopping', "ReactController.reactToppings")
@@ -54,7 +55,18 @@ Route.post('/customers/create', "CustomerController.processCreate")
 Route.get('/customers/:user_id/update', "CustomerController.update")
 Route.post('/customers/:user_id/update', "CustomerController.processUpdate")
 
-//customers
-Route.get('/customers/login', 'CustomerController.login').as('userLogin')
-Route.post('/customers/login', 'CustomerController.processLogin');
-Route.get('/customers/logout', 'CustomerController.logout').as('userLogout')
+
+
+
+
+
+
+
+
+Route.on('/').render('welcome').as('home')
+
+//login
+// Route.post('/api/user/login', 'LoginController.login');
+Route.post('/api/user', 'LoginController.register');
+
+

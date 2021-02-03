@@ -25,6 +25,7 @@ class LoginController {
     newCart.customer_id = newCustomer.id
     await newCart.save()
   }
+
 }
 
 module.exports = LoginController

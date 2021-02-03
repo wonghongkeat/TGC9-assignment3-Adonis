@@ -44,6 +44,24 @@ async index({view}){
   }
 
 
+   login({view}){
+    return view.render('customers/login')
+  }
+    async processLogin({request, auth, response}) {
+    let Data = request.post();
+    await auth.authenticator('customer').attempt(Data.username, Data.password);
+    // return auth.customer
+    response.redirect('/customers/show')
+    console.log("logged in")
+    console.log(auth.user)
+  }
+
+ async logout({auth,response}){
+    await auth.logout()
+    response.redirect('/')
+  }
+
+
 }
 
 module.exports = CustomerController

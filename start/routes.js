@@ -29,6 +29,7 @@ Route.get('/user/logout', 'UserController.logout').as('userLogout')
 Route.get('/reactFlavours', "ReactController.reactFlavours")
 Route.get('/reactTopping', "ReactController.reactToppings")
 Route.get('/reactSugar', "ReactController.reactSugars")
+Route.post('/react/create',"ReactController.create")
 
 //flavours
 Route.get('/flavours', 'FlavourController.index').as('flavours.show')
@@ -54,7 +55,9 @@ Route.get('/customers/create', "CustomerController.create")
 Route.post('/customers/create', "CustomerController.processCreate")
 Route.get('/customers/:user_id/update', "CustomerController.update")
 Route.post('/customers/:user_id/update', "CustomerController.processUpdate")
-
+Route.get('/customers/login', 'CustomerController.login').as('userLogin')
+Route.post('/customers/login', 'CustomerController.processLogin');
+Route.get('/customers/logout', 'CustomerController.logout').as('userLogout')
 
 
 

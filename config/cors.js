@@ -17,6 +17,7 @@ module.exports = {
   |
   */
   origin: '/api/(.*)',
+  origin: '/react/create',
   origin: true,
 
 

@@ -1,0 +1,17 @@
+@layout('base')
+
+@section('content')
+<form method="POST">
+  {{csrfField()}}
+  <h1>Customer login</h1>
+  <div>
+    <label>username</label>
+    <input class="form-control" type="text" class="form-control" name="username"/>
+  </div>
+  <div>
+    <label>Password</label>
+    <input class="form-control" type="password" class="form-control" name="password"/>
+  </div>
+  <input type="submit" class="btn btn-primary mt-3"/>
+</form>
+@endsection

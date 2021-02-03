@@ -14,7 +14,7 @@
 
   <body>
     <h1 style="text-align:center; margin-top:20px">Admin</h1>
-   @loggedIn
+
     <div class="col text-center">
     <button type="button" class="btn btn-light"><a href="{{ route('flavours.show') }}">Flavours</a></button>
     <button type="button" class="btn btn-light"><a href="{{ route('toppings.show') }}">Toppings</a></button>
@@ -22,11 +22,11 @@
     <button type="button" class="btn btn-light"><a href="{{ route('createCart') }}">create</a></button>
     <button type="button" class="btn btn-light"><a href="{{ route('customers.show') }}">Customers</a></button>
     </div>
-  @else
+
     <div class="col text-center">
     <button style="text-align:center" type="button" class="btn btn-light"><a href="{{ route('userLogin') }}">Admin Login</a></button>
     </div>
-  @endloggedIn
+
 
 
 

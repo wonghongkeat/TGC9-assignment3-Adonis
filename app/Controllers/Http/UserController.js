@@ -21,22 +21,14 @@ class UserController {
 
   async processLogin({request, response, auth, session}) {
     let Data = request.post();
-     try {
-      await auth.attempt(Data.username, Data.password);
-    } catch (e) {
-      session.flashExcept(['password']);
+    await auth.attempt(Data.username, Data.password);
+    console.log("admin logged in")
+    console.log(auth.user)
+    return response.redirect('/')
 
-      session.flash({
-        error: 'We cannot find any account with these credentials.',
-      });
-
-      return response.redirect('/user/login');
-    }
-
-    session.flash({ notification: 'Logged in successfully' });
-    return response.redirect('/');
   }
-   async logout({auth,response}){
+
+  async logout({auth,response}){
     await auth.logout()
     response.redirect('/')
   }

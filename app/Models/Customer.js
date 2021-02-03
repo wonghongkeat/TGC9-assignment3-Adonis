@@ -8,10 +8,6 @@ const Model = use('Model')
 
 class Customer extends Model {
 
-  cart(){
-    return this.hasOne("App/Models/Cart")
-  }
-
   static boot () {
     super.boot()
 
@@ -38,6 +34,10 @@ class Customer extends Model {
    */
   tokens () {
     return this.hasMany('App/Models/Token')
+  }
+
+   cart(){
+    return this.hasOne("App/Models/Cart")
   }
 }
 

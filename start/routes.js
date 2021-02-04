@@ -17,7 +17,9 @@
 const Route = use('Route')
 
 
-
+//login
+Route.post('/api/user/login', 'LoginController.login');
+Route.post('/api/user', 'LoginController.register');
 
 //users
 Route.get('/register', 'UserController.create')
@@ -68,8 +70,6 @@ Route.get('/customers/logout', 'CustomerController.logout').as('userLogout')
 
 Route.on('/').render('welcome').as('home')
 
-//login
-// Route.post('/api/user/login', 'LoginController.login');
-Route.post('/api/user', 'LoginController.register');
+
 
 

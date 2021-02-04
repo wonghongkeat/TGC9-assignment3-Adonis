@@ -55,6 +55,7 @@ class ProductController {
       flavours:flavours.toJSON(),
       toppings:toppings.toJSON()
     })
+
   }
 
  async showProduct({view,response}){

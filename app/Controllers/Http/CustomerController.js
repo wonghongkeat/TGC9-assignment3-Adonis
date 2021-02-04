@@ -4,8 +4,9 @@ const Customer = use('App/Models/Customer')
 const Cart = use('App/Models/Cart')
 
 class CustomerController {
-async index({view}){
+async index({view, auth}){
     let customers = await Customer.all()
+    console.log(await auth.authenticator('customer').getUser());
     return view.render('customers/show',{
       customers: customers.toJSON()
     })
@@ -51,9 +52,10 @@ async index({view}){
     let Data = request.post();
     await auth.authenticator('customer').attempt(Data.username, Data.password);
     // return auth.customer
-    response.redirect('/customers/show')
+
     console.log("logged in")
-    console.log(auth.user)
+    console.log(auth.authenticator('customer').getUser());
+        response.redirect('/customers/show')
   }
 
  async logout({auth,response}){

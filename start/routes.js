@@ -48,8 +48,7 @@ Route.get('/product/:id/show', "ProductController.show").as("showOne")
 Route.get('/product/show', "ProductController.showProduct").as('product.show')
 
 //cart
-Route.get('/cart/create', "CartController.create").as('createCart')
-Route.post('/cart/create', "CartController.processCreate")
+Route.get('/cart/show', "CartController.show").as('cart')
 
 //customers
 Route.get('/customers/show', "CustomerController.index").as('customers.show')

@@ -1,0 +1,63 @@
+@layout("base")
+@section('content')
+
+<table class='table'>
+<tr>
+<th>cart id</th>
+<th>customer id</th>
+<th>flavour</th>
+<th>sugar</th>
+<th>topping</th>
+
+</tr>
+
+
+@each(c in cart)
+<tr>
+<td>{{c.id}}</td>
+<td>{{c.customer_id}}</td>
+
+<td>
+<table>
+@each(p in c.products)
+<tr>
+<td>
+{{p.flavour.tea}}
+</td>
+</tr>
+@endeach
+</table>
+</td>
+
+<td>
+<table>
+@each(p in c.products)
+<tr>
+<td>
+{{p.sugar.level}}
+</td>
+</tr>
+@endeach
+</table>
+</td>
+
+<td>
+<table>
+@each(p in c.products)
+<tr>
+@each(t in p.toppings)
+<td>{{t.topping}}</td>
+@endeach
+</tr>
+@endeach
+</table>
+</td>
+
+</tr>
+@endeach
+
+
+
+</table>
+
+@endsection

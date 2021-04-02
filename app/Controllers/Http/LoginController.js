@@ -26,6 +26,16 @@ class LoginController {
     await newCart.save()
   }
 
+   async profile({ response, auth }) {
+    try {
+      let customer = await auth.authenticator('api').getUser()
+      response.json(customer);
+    } catch (error) {
+      console.log(error);
+      response.send(error)
+    }
+  }
+
 }
 
 module.exports = LoginController

@@ -20,6 +20,7 @@ const Route = use('Route')
 //login
 Route.post('/api/user/login', 'LoginController.login');
 Route.post('/api/user', 'LoginController.register');
+Route.get('/api/user/profile', 'LoginController.profile')
 
 //users
 Route.get('/register', 'UserController.create')

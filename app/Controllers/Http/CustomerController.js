@@ -4,6 +4,7 @@ const Customer = use('App/Models/Customer')
 const Cart = use('App/Models/Cart')
 
 class CustomerController {
+
 async index({view, auth}){
     let customers = await Customer.all()
     console.log(await auth.authenticator('customer').getUser());

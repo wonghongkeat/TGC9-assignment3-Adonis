@@ -19,3 +19,6 @@ INSERT INTO flavours (tea,price) VALUES
 ('black milk tea',200),
 ('oolong milk tea',250),
 ('earl grey milk tea',250);
+
+INSERT INTO users (username,email,password,address) VALUES
+('wonghongkeat','hongkeat@gemail.com',12345678,'serangoon central 421')

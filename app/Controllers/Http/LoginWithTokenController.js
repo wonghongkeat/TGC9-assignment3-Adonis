@@ -10,8 +10,9 @@ class LoginWithTokenController {
         let rawToken = request.get()['token'];
         let plainToken = Encryption.decrypt(rawToken);
 
-        let token = Token.findBy('token',plainToken);
+        let token = await Token.findBy('token',plainToken);
         if (token){
+            console.log(Token)
             let customer = await Customer.find(token.customer_id);
             await auth.login(customer);
             response.send("User has been logged in succesfully")
@@ -21,4 +22,4 @@ class LoginWithTokenController {
     }
 }
 
-module.exports = LoginWithTokenController
+module.exports = LoginWithTokenController 

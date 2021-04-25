@@ -5,20 +5,58 @@ const Config = use('Config')
 const Stripe = use('stripe')(Config.get('stripe.secret_key'))
 const CART_KEY = "cart"
 
-class CheckoutController {
-    async checkout({ response, session, view }) {
-        let lineItems = [];
-        let cart = Object.values(session.get(CART_KEY, {}));
-        // 1. Create line items
-        for (let cartItem of cart) {
-          lineItems.push({
-            name: cartItem.title,
-            images: [cartItem.image_url],
-            amount: cartItem.price,
-            quantity: cartItem.qty,
-            currency:'SGD'
-          })
-        }
+
+const getCartFromUser = async (session, auth) => {
+  let cart = session.get(CART_KEY, {});
+  let user = null;
+  try {
+    user = await auth.getUser();
+  } catch {
+    user = null;
+  }
+
+  // if cart is null, get from user instead
+  try {
+    if (Object.keys(cart).length == 0 && user && user.cart_content) {
+      cart = JSON.parse(user.cart_content);
+    }
+  }
+  catch {
+    cart = {};
+  }
+  return cart;
+}
+
+const forgetCart = async() => {
+  session.forget(CART_KEY);
+  let user = null;
+  try {
+    user = await auth.getUser();
+    user.cart_content = "";
+    user.save();
+  } catch {
+    user = null;
+  }
+}
+
+
+class CheckOutController {
+  async checkout({ response, session, view, auth }) {
+    // 1. create line items (i.e what the user is paying for)
+    let cart = await getCartFromUser(session, auth);
+    // ...convert the cart from object to an array
+    let cartArray = Object.values(cart);
+
+    let lineItems = cartArray.map(cartItem => {
+      // NOTE: the keys in this object are required by stripe. So we have to follow
+      return {
+        'name': cartItem.category,
+        'description': cartItem.description,
+        'amount': cartItem.price,
+        'quantity': cartItem.quantity,
+        'currency': 'SGD'
+      }
+    })
         let metaData = JSON.stringify(Object.values(cart));
     
        // 2. Create payment

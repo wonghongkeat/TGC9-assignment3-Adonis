@@ -27,7 +27,8 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "mysql": "^2.18.1",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "stripe": "^8.145.0"
   },
   "devDependencies": {},
   "autoload": {

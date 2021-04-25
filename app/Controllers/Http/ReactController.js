@@ -30,7 +30,7 @@ async create({request,response,auth}){
     newProduct.flavour_id = body.flavour
     await newProduct.save()
     await newProduct.toppings().attach(body.topping)
-    let userCart = await Cart.findBy('customer_id', auth.user.id)
+    let userCart = await Cart.findBy('customer_id', auth.customer.id)
     if(userCart){
       await userCart.products().attach(newProduct.id)
     }else(

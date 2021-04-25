@@ -16,6 +16,10 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+//Stripe
+Route.get('checkout/checkout', 'CheckoutController.checkout').as('checkout')
+Route.post('checkout/process', 'CheckoutController.processPayment')
+
 
 //login
 Route.post('/api/user/login', 'LoginController.login');
@@ -41,6 +45,7 @@ Route.get('/user/logout', 'UserController.logout').as('userLogout')
 Route.get('/reactFlavours', "ReactController.reactFlavours")
 Route.get('/reactTopping', "ReactController.reactToppings")
 Route.get('/reactSugar', "ReactController.reactSugars")
+//Route.get('/react/create',"ReactController.create")
 Route.post('/react/create',"ReactController.create")
 
 //flavours

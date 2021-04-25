@@ -26,6 +26,10 @@ Route.get('/api/user/profile', 'LoginController.profile')
 Route.get('/api/cart', 'ReactCartController.getCart').middleware(['auth:api']);
 Route.put('/api/cart', 'ReactCartController.updateCart').middleware(['auth:api'])
 
+//LoginWithTokenController
+Route.get('/api/loginWithToken', 'LoginWithTokenController.login')
+
+
 
 //users
 Route.get('/register', 'UserController.create')
